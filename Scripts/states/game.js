@@ -14,11 +14,16 @@ var states;
         }
         // PUBLIC METHODS
         Game.prototype.start = function () {
+            //add ocean to scene
+            this._ocean = new objects.Ocean();
+            this.addChild(this._ocean);
+            //add plane to scene
             this._plane = new objects.Plane();
             this.addChild(this._plane);
             stage.addChild(this);
         };
         Game.prototype.update = function () {
+            this._ocean.update();
             this._plane.update();
         };
         return Game;
