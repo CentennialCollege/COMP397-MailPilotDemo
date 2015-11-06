@@ -2,7 +2,7 @@
     // MENU CLASS
     export class Menu extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
-        private _helloLabel: objects.Label;
+        private _mailPilotLabel: objects.Label;
         private _startButton: objects.Button;
 
         // CONSTRUCTOR
@@ -14,8 +14,8 @@
         public start(): void {
 
             // hello label
-            this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240);
-            this.addChild(this._helloLabel); // add label to the stage
+            this._mailPilotLabel = new objects.Label("MAIL PILOT", "60px Consolas", "#FFFF00", 320, 240);
+            this.addChild(this._mailPilotLabel); // add label to the stage
 
             // start button
             this._startButton = new objects.Button("StartButton", 320, 340);
@@ -32,7 +32,6 @@
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
         // Callback function / Event Handler for Start Button Click
         private _clickStartButton(event: createjs.MouseEvent): void {
-            createjs.Sound.play("yay"); // activate static class play 
             changeState(config.PLAY_STATE);
         }
 

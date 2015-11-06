@@ -15,8 +15,8 @@ var states;
         // PUBLIC METHODS
         Menu.prototype.start = function () {
             // hello label
-            this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240);
-            this.addChild(this._helloLabel); // add label to the stage
+            this._mailPilotLabel = new objects.Label("MAIL PILOT", "60px Consolas", "#FFFF00", 320, 240);
+            this.addChild(this._mailPilotLabel); // add label to the stage
             // start button
             this._startButton = new objects.Button("StartButton", 320, 340);
             this._startButton.on("click", this._clickStartButton, this); // event listener
@@ -28,7 +28,6 @@ var states;
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
         // Callback function / Event Handler for Start Button Click
         Menu.prototype._clickStartButton = function (event) {
-            createjs.Sound.play("yay"); // activate static class play 
             changeState(config.PLAY_STATE);
         };
         return Menu;

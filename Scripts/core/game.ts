@@ -8,8 +8,10 @@
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
+/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scene.ts" />
 
 /// <reference path="../states/over.ts" />
@@ -24,17 +26,41 @@ var stage: createjs.Stage;
 var stats: Stats;
 var state: number;
 var currentState: objects.Scene; // alias for our current state
+var atlas: createjs.SpriteSheet; // sprite atlas (or texture atlas);
 
 // GAME OBJECTS
 var menu: states.Menu;
 var game: states.Game;
 var over: states.Over;
 
+var data = {
+
+"images": [
+    "../../Assets/images/atlas.png"
+],
+
+"frames": [
+    [2, 2, 226, 176, 0, 0, -1],
+    [2, 180, 62, 60, 0, 0, -1],
+    [66, 180, 150, 50, 0, 0, 0],
+    [218, 180, 61, 49, 0, -4, -10]
+],
+
+"animations": {
+    "cloud": [0],
+    "island": [1],
+    "StartButton": [2],
+    "plane": [3]
+}
+
+};
+
 // manifest of all our assets
 var manifest = [
-    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
-    { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "ocean", src: "../../Assets/images/ocean.gif" },
+    { id: "engine", src: "../../Assets/audio/engine.ogg" },
+    { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "yay", src: "../../Assets/audio/yay.ogg" }
 ];
 
@@ -43,6 +69,9 @@ function preload(): void {
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
     assets.loadManifest(manifest);
+    
+    // Spritesheet is configured
+    atlas = new createjs.SpriteSheet(data);
 }
 
 function init():void {
