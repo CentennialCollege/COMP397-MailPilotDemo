@@ -9,7 +9,6 @@ module objects {
 			
 		}
 		
-		
 		/** 
 		 * Update Method for Plane Class
 		*/
