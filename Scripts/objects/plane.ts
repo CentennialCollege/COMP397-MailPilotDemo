@@ -6,7 +6,8 @@ module objects {
 			super("plane");
 			
 			this.y = 430;
-			
+			// play engine sound
+			createjs.Sound.play("engine",0,0,0,-1,1,0);
 		}
 		
 		/** 

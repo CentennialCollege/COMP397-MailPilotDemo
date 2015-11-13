@@ -29,35 +29,9 @@ var states;
                 this._clouds[cloud] = new objects.Cloud();
                 this.addChild(this._clouds[cloud]);
             }
+            // instantiate collision manager
+            this._collision = new managers.Collision();
             stage.addChild(this);
-        };
-        // PRIVATE METHODS
-        /**
-         * Private Utility Method - Distance - returns distance between to points in pixels
-         */
-        Game.prototype._distance = function (p1, p2) {
-            return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
-        };
-        Game.prototype._checkCollision = function (object) {
-            // check the distance between plane and other object
-            if (this._distance(this._plane.getPosition(), object.getPosition()) <
-                (this._plane.getHalfHeight() + object.getHalfHeight())) {
-                // Check if plane is not already colliding
-                if (!object.getIsColliding()) {
-                    switch (object.getName()) {
-                        case "island":
-                            console.log("Island Hit");
-                            break;
-                        case "cloud":
-                            console.log("Cloud Hit");
-                            break;
-                    }
-                    object.setIsColliding(true);
-                }
-            }
-            else {
-                object.setIsColliding(false);
-            }
         };
         // update the scene every frame
         Game.prototype.update = function () {
@@ -67,9 +41,9 @@ var states;
             //update each cloud
             for (var cloud = 0; cloud < 3; cloud++) {
                 this._clouds[cloud].update();
-                this._checkCollision(this._clouds[cloud]);
+                this._collision.update(this._plane, this._clouds[cloud]);
             }
-            this._checkCollision(this._island);
+            this._collision.update(this._plane, this._island);
         };
         return Game;
     })(objects.Scene);
