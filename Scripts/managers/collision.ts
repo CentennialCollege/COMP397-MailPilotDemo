@@ -35,9 +35,11 @@ module managers {
                     
                     switch(object2.getName()) {
                         case "island":
+                           scoreboard.addScore(100);
                            createjs.Sound.play("yay");
                         break;
                         case "cloud":
+                            scoreboard.removeLives(1);
                             createjs.Sound.play("thunder");
                         break;
                     }

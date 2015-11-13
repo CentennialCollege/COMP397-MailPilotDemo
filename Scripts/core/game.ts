@@ -8,6 +8,7 @@
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="../managers/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 
 /// <reference path="../objects/gameobject.ts" />
@@ -37,6 +38,9 @@ var atlas: createjs.SpriteSheet; // sprite atlas (or texture atlas);
 var menu: states.Menu;
 var game: states.Game;
 var over: states.Over;
+
+// MANAGERS
+var scoreboard:managers.ScoreBoard;
 
 var data = {
 
@@ -87,6 +91,8 @@ function init():void {
     createjs.Ticker.on("tick", gameLoop); // update gameLoop every frame
     setupStats(); // sets up our stats counting
 
+    scoreboard = new managers.ScoreBoard();
+
     state = config.MENU_STATE;
     changeState(state);
 
@@ -112,10 +118,6 @@ function setupStats():void {
     stats.domElement.style.top = "0px";
     document.body.appendChild(stats.domElement);
 }
-
-
-
-
 
 // state machine prep
 function changeState(state): void {

@@ -6,6 +6,7 @@
 /// <reference path="../typings/tweenjs/tweenjs.d.ts" />
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
+/// <reference path="../managers/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/label.ts" />
@@ -30,6 +31,8 @@ var atlas; // sprite atlas (or texture atlas);
 var menu;
 var game;
 var over;
+// MANAGERS
+var scoreboard;
 var data = {
     "images": [
         "../../Assets/images/atlas.png"
@@ -70,6 +73,7 @@ function init() {
     createjs.Ticker.setFPS(60); // set frame rate to 60 fps
     createjs.Ticker.on("tick", gameLoop); // update gameLoop every frame
     setupStats(); // sets up our stats counting
+    scoreboard = new managers.ScoreBoard();
     state = config.MENU_STATE;
     changeState(state);
 }

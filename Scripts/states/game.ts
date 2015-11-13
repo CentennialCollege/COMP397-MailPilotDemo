@@ -5,10 +5,11 @@
         private _ocean: objects.Ocean;
         private _island: objects.Island;
         private _plane: objects.Plane;
-        private _collision: managers.Collision;
-
         private _clouds: objects.Cloud[] = [];
-
+        private _collision: managers.Collision;
+        private _scoreLabel: objects.Label;
+        private _livesLabel: objects.Label;
+        
         // CONSTRUCTOR
         constructor() {
             super();
@@ -16,6 +17,12 @@
 
         // PUBLIC METHODS
         public start(): void {
+            //reset scoreboard
+            scoreboard.setLives(5);
+            scoreboard.setScore(0);
+            console.log(scoreboard.getLives());
+            console.log(scoreboard.getScore());
+            
             //add ocean to scene
             this._ocean = new objects.Ocean();
             this.addChild(this._ocean);
@@ -33,6 +40,14 @@
                 this._clouds[cloud] = new objects.Cloud();
                 this.addChild(this._clouds[cloud]);
             }
+
+            // Score Label
+            this._scoreLabel = new objects.Label("Score: ", "40px Consolas","#FFFF00",5, 5,false);
+            this.addChild(this._scoreLabel);
+            
+            // Lives Label
+            this._livesLabel = new objects.Label("Lives: ", "40px Consolas","#FFFF00",350, 5,false);
+            this.addChild(this._livesLabel);
 
             // instantiate collision manager
             this._collision = new managers.Collision();
@@ -53,7 +68,13 @@
             }
 
             this._collision.update(this._plane, this._island);
+            this._updateScore();
             
+        }
+        
+        private _updateScore():void {
+            this._scoreLabel.text = "Score: " + scoreboard.getScore();
+            this._livesLabel.text = "Lives: " + scoreboard.getLives();
         }
     }
 } 
