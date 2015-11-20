@@ -194,6 +194,7 @@
             <filename>island.png</filename>
             <filename>plane.png</filename>
             <filename>StartButton.png</filename>
+            <filename>RestartButton.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

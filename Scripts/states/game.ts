@@ -70,6 +70,11 @@
             this._collision.update(this._plane, this._island);
             this._updateScore();
             
+            if(scoreboard.getLives() < 1) {
+                this._plane.engineOff();
+                changeState(config.OVER_STATE);
+            }
+            
         }
         
         private _updateScore():void {

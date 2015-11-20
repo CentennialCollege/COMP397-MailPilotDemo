@@ -19,20 +19,21 @@ var data = {
     ],
     "frames": [
         [2, 2, 226, 176, 0, 0, -1],
-        [2, 180, 62, 60, 0, 0, -1],
-        [66, 180, 150, 50, 0, 0, 0],
-        [218, 180, 61, 49, 0, -4, -10]
+        [230, 2, 150, 50, 0, 0, 0],
+        [230, 54, 150, 50, 0, 0, 0],
+        [230, 106, 62, 60, 0, 0, -1],
+        [294, 106, 61, 49, 0, -4, -10]
     ],
     "animations": {
         "cloud": [0],
-        "island": [1],
+        "RestartButton": [1],
         "StartButton": [2],
-        "plane": [3]
+        "island": [3],
+        "plane": [4]
     }
 };
 // manifest of all our assets
 var manifest = [
-    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },

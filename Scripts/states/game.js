@@ -56,6 +56,10 @@ var states;
             }
             this._collision.update(this._plane, this._island);
             this._updateScore();
+            if (scoreboard.getLives() < 1) {
+                this._plane.engineOff();
+                changeState(config.OVER_STATE);
+            }
         };
         Game.prototype._updateScore = function () {
             this._scoreLabel.text = "Score: " + scoreboard.getScore();

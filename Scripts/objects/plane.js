@@ -13,13 +13,17 @@ var objects;
             _super.call(this, "plane");
             this.y = 430;
             // play engine sound
-            createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
+            this._engineSound = createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
         }
         /**
          * Update Method for Plane Class
         */
         Plane.prototype.update = function () {
             this.x = stage.mouseX;
+        };
+        Plane.prototype.engineOff = function () {
+            console.log("Engine off");
+            this._engineSound.stop();
         };
         return Plane;
     })(objects.GameObject);
