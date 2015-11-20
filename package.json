@@ -1,0 +1,22 @@
+{
+  "name": "comp397-mailpilotdemo-f2015",
+  "version": "1.0.0",
+  "description": "Mail Pilot Demo for COMP397 @ Centennial College",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CentennialCollege/COMP397-MailPilotDemo.git"
+  },
+  "author": "Tom Tsiliopoulos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CentennialCollege/COMP397-MailPilotDemo/issues"
+  },
+  "homepage": "https://github.com/CentennialCollege/COMP397-MailPilotDemo#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
