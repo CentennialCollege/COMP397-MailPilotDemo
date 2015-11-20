@@ -15,7 +15,7 @@ var states;
         // PUBLIC METHODS
         Over.prototype.start = function () {
             // level label
-            this._levelLabel = new objects.Label("Game Over", "60px Consolas", "#000000", 320, 240, true);
+            this._levelLabel = new objects.Label("Game Over", "60px " + config.FONT_FAMILY, config.FONT_COLOUR, 320, 240, true);
             this.addChild(this._levelLabel); // add label to the stage
             // back button
             this._backButton = new objects.Button("BackButton", 320, 340);

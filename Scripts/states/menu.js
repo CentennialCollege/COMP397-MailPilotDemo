@@ -18,7 +18,7 @@ var states;
             this._ocean = new objects.Ocean();
             this.addChild(this._ocean);
             // hello label
-            this._mailPilotLabel = new objects.Label("MAIL PILOT", "80px Consolas", "#FFFF00", 320, 140, true);
+            this._mailPilotLabel = new objects.Label("MAIL PILOT", "80px " + config.FONT_FAMILY, config.FONT_COLOUR, 320, 140, true);
             this.addChild(this._mailPilotLabel); // add label to the stage
             // start button
             this._startButton = new objects.Button("StartButton", 320, 340);
