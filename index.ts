@@ -16,5 +16,5 @@ var server = app.listen(process.env.PORT || 3000, ()=> {
   var host:string = server.address().address;
   var port:number = server.address().port;
 
-  console.log('Server for MailPilot is listening at http://%s:%s', host, port);
+  //console.log('Server for MailPilot is listening at http://%s:%s', host, port);
 });
